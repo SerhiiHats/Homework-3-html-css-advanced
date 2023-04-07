@@ -6,37 +6,43 @@
     padding: 20px;
 }
 
+.container-width{
+    width: 80%;
+}
+
 .container-video {
-    width: 70%;
     height: 250px;
     border: 1px solid salmon;
-    margin-bottom: 20px;
+    margin: 20px auto;
 }
 
 .control-panel {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
+    margin: auto;    
+}
+
+.sub-control-panel {
+    display: flex;
+    justify-content: space-between
 }
 
 .btn-control {
     width: 70px;
     height: 50px;
-    border: 1px solid salmon;
-    margin-right: 10px;
+    text-align: center;
 }
 
 .btn-control img {
-    padding-left: 5px;
     height: 100%;
     opacity: 0.8;
     transition: 0.2s;
 }
 
-.current-time{
+.current-time {
     width: 200px;
-    height: 37px;
-    /* border: 1px solid salmon; */
-    /* margin-right: 10px; */
+    height: 35px;
+    border: 1px solid rgb(117, 117, 117);
     font-size: 20px;
     text-align: center;
     padding-top: 13px;

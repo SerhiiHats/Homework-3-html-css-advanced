@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>task2</title>
+    <link rel="stylesheet" href="css/math.css">
 </head>
 
 <body>
@@ -15,7 +16,27 @@
     Після натискання на кожну з кнопок повинен створюватися свій Worker і при зверненні до потоку в ньому буде
     проводитися обчислення.
     Використовуйте 4 файли Worker.js із різним функціоналом. -->
+    
+    <div class="container">
+        <div class="wrap-value">
+            <label for="value1">Значение 1: </label>
+            <input id="value1" class="inp" pattern="\d+[\.]?\d{0,10}" type="text" placeholder="Введите значение" required>
+            <div>результат "sum": <span id="result-sum"></span></div>
+            <label for="value2">Значение 2: </label>
+            <input id="value2" class="inp" pattern="\d+[\.]?\d{0,10}" type="text" placeholder="Введите значение" required>
+            <div>результат "minus": <span id="result-minus"></span></div>
+            <div>результат "multiplication": <span id="result-multiplication"></span></div>
+            <div>результат "division": <span id="result-division"></span></div>
+        </div>
+        <div class="wrap-btn">
+            <button id="btn-sum">sum</button>
+            <button id="btn-minus">minus</button>
+            <button id="btn-multiplication">multiplication</button>
+            <button id="btn-division">division</button>
+        </div>
 
+    </div>
+    <script src="js/main.js"></script>
 </body>
 
 </html>
