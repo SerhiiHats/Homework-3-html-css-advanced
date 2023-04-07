@@ -1,0 +1,48 @@
+.container {
+    max-width: 1024px;
+    height: 500px;
+    margin: auto;
+    border: 1px solid salmon;
+    padding: 20px;
+}
+
+.container-video {
+    width: 70%;
+    height: 250px;
+    border: 1px solid salmon;
+    margin-bottom: 20px;
+}
+
+.control-panel {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.btn-control {
+    width: 70px;
+    height: 50px;
+    border: 1px solid salmon;
+    margin-right: 10px;
+}
+
+.btn-control img {
+    padding-left: 5px;
+    height: 100%;
+    opacity: 0.8;
+    transition: 0.2s;
+}
+
+.current-time{
+    width: 200px;
+    height: 37px;
+    /* border: 1px solid salmon; */
+    /* margin-right: 10px; */
+    font-size: 20px;
+    text-align: center;
+    padding-top: 13px;
+}
+
+.btn-control img:hover {
+    opacity: 1;
+    scale: 1.1;
+}
