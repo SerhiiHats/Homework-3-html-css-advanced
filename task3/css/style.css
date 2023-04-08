@@ -3,10 +3,7 @@
     margin: auto;
     border: 1px solid rgb(131, 130, 130);   
     padding: 20px;
-     /* background-color: rgb(203, 224, 236); */
     box-shadow: 0 0 10px 5px lightgray;   
-    background-image: url("/img/backgrounds-fon.jpg");    
-    background-repeat:no-repeat;   
 }
 
 .container-width {

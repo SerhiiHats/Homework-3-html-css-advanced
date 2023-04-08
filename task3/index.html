@@ -7,6 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>task3</title>
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        .container {
+            background-image: url('img/backgrounds-fon.jpg');
+            background-repeat: no-repeat;
+        }
+    </style>
 </head>
 
 <body>
@@ -37,17 +43,18 @@
                 <img src="icon/play-solid.svg" alt="play">
             </div>
             <div class="sub-control-panel">
-                <div class="btn-control"><img src="icon/backward-solid.svg" alt="backward"></div>
-                <div class="btn-control"><img src="icon/stop-solid.svg" alt="stop"></div>
-                <div class="btn-control"><img src="icon/forward-solid.svg" alt="forward"></div>
+                <div id="backward" class="btn-control"><img src="icon/backward-solid.svg" alt="backward"></div>
+                <div id="stop" class="btn-control"><img src="icon/stop-solid.svg" alt="stop"></div>
+                <div id="forward" class="btn-control"><img src="icon/forward-solid.svg" alt="forward"></div>
             </div>
 
             <div id="time" class="btn-control current-time">00:00/00:00</div>
             <div class="btn-control"><img src="icon/expand-solid.svg" alt="expand"></div>
             <div class="sub-control-panel">
-                <div class="btn-control"><img src="icon/volume-low-solid.svg" alt="volume-low"></div>
-                <div class="btn-control"><img src="icon/volume-xmark-solid.svg" alt="volume-stop"></div>
-                <div class="btn-control"><img src="icon/volume-high-solid.svg" alt="volume-high"></div>
+                <div id="volume-low" class="btn-control"><img src="icon/volume-low-solid.svg" alt="volume-low"></div>
+                <div id="volume-stop" class="btn-control"><img src="icon/volume-xmark-solid.svg" alt="volume-stop">
+                </div>
+                <div id="volume-high" class="btn-control"><img src="icon/volume-high-solid.svg" alt="volume-high"></div>
             </div>
         </div>
     </div>
