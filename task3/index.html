@@ -27,8 +27,11 @@
 
     <div class="container">
         <div class="container-width container-video">
-
+            <video id="video" controls>
+                <source src="video/nature2.mp4">
+            </video>
         </div>
+
         <div class="container-width control-panel">
             <div id="play" class="btn-control">
                 <img src="icon/play-solid.svg" alt="play">
@@ -39,17 +42,16 @@
                 <div class="btn-control"><img src="icon/forward-solid.svg" alt="forward"></div>
             </div>
 
-            <div class="btn-control current-time">00:21/06:07</div>
+            <div id="time" class="btn-control current-time">00:00/00:00</div>
             <div class="btn-control"><img src="icon/expand-solid.svg" alt="expand"></div>
             <div class="sub-control-panel">
                 <div class="btn-control"><img src="icon/volume-low-solid.svg" alt="volume-low"></div>
                 <div class="btn-control"><img src="icon/volume-xmark-solid.svg" alt="volume-stop"></div>
                 <div class="btn-control"><img src="icon/volume-high-solid.svg" alt="volume-high"></div>
             </div>
-
         </div>
-
     </div>
+    <script src="js/player.js"></script>
 </body>
 
 </html>

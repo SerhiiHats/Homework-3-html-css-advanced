@@ -1,25 +1,30 @@
 .container {
     max-width: 1024px;
-    height: 500px;
     margin: auto;
-    border: 1px solid salmon;
+    border: 1px solid rgb(131, 130, 130);   
     padding: 20px;
+     /* background-color: rgb(203, 224, 236); */
+    box-shadow: 0 0 10px 5px lightgray;   
+    background-image: url("/img/backgrounds-fon.jpg");    
+    background-repeat:no-repeat;   
 }
 
-.container-width{
+.container-width {
     width: 80%;
 }
 
 .container-video {
-    height: 250px;
-    border: 1px solid salmon;
     margin: 20px auto;
+}
+
+.container-video>video {
+    width: 100%;
 }
 
 .control-panel {
     display: flex;
     justify-content: space-between;
-    margin: auto;    
+    margin: auto;
 }
 
 .sub-control-panel {
