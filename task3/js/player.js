@@ -99,88 +99,135 @@ let mediaJSON = {
 };
 
 const url = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/";
+const arrayVideos = mediaJSON.categories[0].videos;
 let video = document.querySelector("#video");
 let time = document.querySelector("#time");
-let iconPlay = document.querySelector("#play>img");
+// let iconPlay = document.querySelector("#play>img");
+let play = document.querySelector("#play");
 let divListVideos = document.querySelector("#list-videos");
-let arrayVideos = mediaJSON.categories[0].videos;
 let timeId;
 
-
+let utils = {
+    saveByLocalStorageUserVideo: function (userUrl, userTime) {
+        if (userUrl && userTime) {
+            localStorage.setItem("streamCinema", JSON.stringify({ "userUrl": userUrl, "userTime": userTime }));
+            return true;
+        }
+        return false;
+    },
+    getByLocalStorageUserVideo: function () {
+        if (localStorage.streamCinema) {
+            let streamCinema = localStorage.getItem("streamCinema");
+            return JSON.parse(streamCinema);
+        }
+        return false;
+    },
+    resetViewTime: function () {
+        time.textContent = `00:00/00:00`;
+    },
+    setTimeVideo: function (urlVideo) {
+        let streamCinema = this.getByLocalStorageUserVideo();
+        if (streamCinema && streamCinema.userUrl === urlVideo) {
+            video.currentTime = streamCinema.userTime;
+        }
+    },
+    getParseTime: function (date) {
+        const minute = (date.getMinutes() < 10) ? `0${date.getMinutes()}` : date.getMinutes();
+        const seconds = (date.getSeconds() < 10) ? `0${date.getSeconds()}` : date.getSeconds();
+        return `${minute}:${seconds}`;
+    },
+    viewTime: function () {
+        if (!video.currentTime) {
+            return;
+        }
+        let milSecCurrent = video.currentTime * 1000;
+        let carrentTime = this.getParseTime(new Date(milSecCurrent));
+        let milSecTotalTime = video.duration * 1000;
+        let totalTime = this.getParseTime(new Date(milSecTotalTime));
+        time.textContent = `${carrentTime}/${totalTime}`;
+    },
+}
 
 let serviceView = {
-    appendCardVideo: function (video, element) {
-        const cardVideo = this.createCardVideo(video);
+    appendCardVideo: function (ObjVideo, element) {
+        const cardVideo = this.createCardVideo(ObjVideo);
         element.append(cardVideo);
     },
-    createCardVideo: function (video) {
+    createCardVideo: function (ObjVideo) {
         let divCardVideo = document.createElement("div");
         divCardVideo.className = "card-video";
-        divCardVideo.dataset.urlVideo = video.sources;
+        divCardVideo.dataset.urlVideo = ObjVideo.sources;
         divCardVideo.innerHTML = `
             <div class="wrap-video">
-                <img class="thumb-video" src="${url + video.thumb}" alt="${video.title}">
+                <img class="thumb-video" src="${url + ObjVideo.thumb}" alt="${ObjVideo.title}">
             </div>
-            <h2 class="title-video">${video.title}</h2>
-            <h3 class="subtitle-video">${video.subtitle}</h3>
+            <h2 class="title-video">${ObjVideo.title}</h2>
+            <h3 class="subtitle-video">${ObjVideo.subtitle}</h3>
         `;
         return divCardVideo;
     },
-    appendVideo: function (urlVideo, element) {
-        video.pause()
-
+    appendVideoAtPlayer: function (urlVideo) {
+        timeId && clearInterval(timeId);
+        utils.resetViewTime();
+        video.pause();
         video.src = urlVideo;
-        video.play();
+        timeId = setInterval(() => {
+            utils.viewTime();
+            utils.saveByLocalStorageUserVideo(video.src, video.currentTime);
+        }, 1000);
+    },
+}
+
+function init() {
+    const startSettings = utils.getByLocalStorageUserVideo();
+    if (!startSettings) {
+        return;
     }
+    const userUrl = startSettings.userUrl;
+    const userTime = startSettings.userTime;
+    serviceView.appendVideoAtPlayer(userUrl);
+    video.currentTime = userTime;
 }
 
-arrayVideos.forEach(video => {
-    serviceView.appendCardVideo(video, divListVideos);
+arrayVideos.forEach(ObjVideo => {
+    serviceView.appendCardVideo(ObjVideo, divListVideos);
 });
-
-function getParseTime(date) {
-    const minute = (date.getMinutes() < 10) ? `0${date.getMinutes()}` : date.getMinutes();
-    const seconds = (date.getSeconds() < 10) ? `0${date.getSeconds()}` : date.getSeconds();
-    return `${minute}:${seconds}`;
-}
-
-function viewTime() {
-    let milSecCurrent = video.currentTime * 1000;
-    let carrentTime = getParseTime(new Date(milSecCurrent));
-    let milSecTotalTime = video.duration * 1000;
-    let totalTime = getParseTime(new Date(milSecTotalTime));
-    time.textContent = `${carrentTime}/${totalTime}`;
-}
 
 document.querySelector("#play").onclick = (event) => {
     if (video.paused) {
-        event.target.src = "icon/pause-solid.svg";
+        timeId && clearInterval(timeId);
+        // event.target.src = "icon/pause-solid.svg";
+        play.innerHTML = `<i class="fa-solid fa-pause"></i>`;
         video.play();
-        timeId = setInterval(() => { viewTime() }, 1000);
+        timeId = setInterval(() => {
+            utils.viewTime();
+            utils.saveByLocalStorageUserVideo(video.src, video.currentTime);
+        }, 1000);
     } else {
-        event.target.src = "icon/play-solid.svg";
+        // event.target.src = "icon/play-solid.svg";
+        play.innerHTML = `<i class="fa-solid fa-play"></i>`;
         video.pause();
-        clearInterval(timeId);
+        timeId && clearInterval(timeId);
     }
 }
 
 document.querySelector("#backward").onclick = () => {
     video.currentTime -= 10;
-    viewTime();
+    utils.viewTime();
 }
 
 document.querySelector("#forward").onclick = () => {
     video.currentTime += 10;
-    viewTime();
+    utils.viewTime();
 }
 
 document.querySelector("#stop").onclick = (event) => {
-    iconPlay.src = "icon/play-solid.svg";
+    // iconPlay.src = "icon/play-solid.svg";
+    play.innerHTML = `<i class="fa-solid fa-play"></i>`;
     video.currentTime = 0;
-    viewTime();
+    utils.resetViewTime();
     video.pause();
 }
-
 
 document.querySelector("#volume-low").onclick = () => {
     video.volume -= 0.1;
@@ -194,20 +241,16 @@ document.querySelector("#volume-stop").onclick = () => {
     video.volume = 0;
 }
 
-
 divListVideos.addEventListener("click", (e) => {
     if (e.target.classList.contains("thumb-video")) {
-        serviceView.appendVideo(e.target.parentElement.parentElement.dataset.urlVideo, video)
-        console.log(e.target.parentElement.parentElement.dataset.urlVideo);
+        serviceView.appendVideoAtPlayer(e.target.parentElement.parentElement.dataset.urlVideo)
         return;
     }
     if (e.target.classList.contains("title-video") || e.target.classList.contains("subtitle-video")) {
-
-        serviceView.appendVideo(e.target.parentElement.dataset.urlVideo, video);
-        console.log(e.target.parentElement.dataset.urlVideo);
+        serviceView.appendVideoAtPlayer(e.target.parentElement.dataset.urlVideo);
         return;
     }
 });
 
-
+window.addEventListener("DOMContentLoaded", init);
 

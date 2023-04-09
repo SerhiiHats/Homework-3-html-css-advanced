@@ -42,7 +42,6 @@
                 StreamCinema
                 <span class="sub-logo"> .UA</span>
             </h1>
-            <i class=""></i>
             <div>
                 Заказать звонок
             </div>
@@ -63,28 +62,48 @@
 
     <div class="container">
         <div class="container-width container-video">
-            <video id="video"
-                src="https://storage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4" controls>
+            <video id="video" poster="img/online-cinema-816x476.jpg" autoplay="true" controls>
             </video>
         </div>
 
         <div class="container-width control-panel">
             <div id="play" class="btn-control">
-                <img src="icon/play-solid.svg" alt="play">
+                <i class="fa-solid fa-play"></i>
+                <!-- <i class="fa-solid fa-pause"></i> -->
+                <!-- <img src="icon/play-solid.svg" alt="play"> -->
             </div>
             <div class="sub-control-panel">
-                <div id="backward" class="btn-control"><img src="icon/backward-solid.svg" alt="backward"></div>
-                <div id="stop" class="btn-control"><img src="icon/stop-solid.svg" alt="stop"></div>
-                <div id="forward" class="btn-control"><img src="icon/forward-solid.svg" alt="forward"></div>
-            </div>
-
-            <div id="time" class="btn-control current-time">00:00/00:00</div>
-            <div class="btn-control"><img src="icon/expand-solid.svg" alt="expand"></div>
-            <div class="sub-control-panel">
-                <div id="volume-low" class="btn-control"><img src="icon/volume-low-solid.svg" alt="volume-low"></div>
-                <div id="volume-stop" class="btn-control"><img src="icon/volume-xmark-solid.svg" alt="volume-stop">
+                <div id="backward" class="btn-control">
+                    <i class="fa-solid fa-backward"></i>
+                    <!-- <img src="icon/backward-solid.svg" alt="backward"> -->
                 </div>
-                <div id="volume-high" class="btn-control"><img src="icon/volume-high-solid.svg" alt="volume-high"></div>
+                <div id="stop" class="btn-control">
+                    <i class="fa-solid fa-stop"></i>
+                    <!-- <img src="icon/stop-solid.svg" alt="stop"> -->
+                </div>
+                <div id="forward" class="btn-control">
+                    <i class="fa-solid fa-forward"></i>
+                    <!-- <img src="icon/forward-solid.svg" alt="forward"> -->
+                </div>
+            </div>
+            <div id="time" class="btn-control current-time">00:00/00:00</div>
+            <div class="btn-control">
+                <i class="fa-solid fa-expand"></i>
+                <!-- <img src="icon/expand-solid.svg" alt="expand"> -->
+            </div>
+            <div class="sub-control-panel">
+                <div id="volume-low" class="btn-control">
+                    <i class="fa-solid fa-volume-low"></i>
+                    <!-- <img src="icon/volume-low-solid.svg" alt="volume-low"> -->
+                </div>
+                <div id="volume-stop" class="btn-control">
+                    <i class="fa-solid fa-volume-xmark"></i>
+                    <!-- <img src="icon/volume-xmark-solid.svg" alt="volume-stop"> -->
+                </div>
+                <div id="volume-high" class="btn-control">
+                    <i class="fa-solid fa-volume-high"></i>
+                    <!-- <img src="icon/volume-high-solid.svg" alt="volume-high"> -->
+                </div>
             </div>
         </div>
 
@@ -100,6 +119,33 @@
         </div> -->
 
     </div>
+    <footer>
+        <div class="a-contaiher last-footer">
+            <div>
+                <h1 class="logo" href="#"><i class="fa-solid fa-film"></i>
+                    StreamCinema
+                    <span class="sub-logo-footer"> .UA</span>
+                </h1>
+                <small>© Design by Serhii Hats</small>
+            </div>
+            <div class="center-of-footers">
+                <p>АДРЕС</p>
+                <p>г.Одесса, ТЦ Gagarinn Plaza</p>
+                <p>Генуезска улица, 5/2</p>
+            </div>
+            <div>
+                <p>ПОДПИСЫВАЙТЕСЬ НА НАС</p>
+                <div>
+
+                </div>
+                <a href="#">Политика конфидинцальности</a>
+                <div>
+                    Оставить заявку
+                </div>
+            </div>
+
+        </div>
+    </footer>
     <script src="https://kit.fontawesome.com/36415ef25f.js" crossorigin="anonymous"></script>
     <script src="js/player.js"></script>
 </body>
