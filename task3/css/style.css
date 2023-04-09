@@ -1,9 +1,83 @@
+.a-contaiher {
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+.firstly-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.firstly-header>.logo {
+    margin: 20px 0px 20px 0px;
+    text-decoration: none;
+    font-family: 'Shantell Sans', cursive;
+    font-size: 74px;
+    position: relative;
+    color: rgb(41, 228, 228);
+}
+
+
+.sub-logo {
+    position: absolute;
+    top: 5px;
+    right: 40px;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 1px;
+    word-spacing: 3px;
+    font-family: 'Roboto', sans-serif;
+    color: black;
+}
+
+.firstly-header>div:last-child {
+    padding: 6px 20px 8px 20px;
+    background-color: #FE9920;
+    color: white;
+    border-radius: 3px;
+    font-family: 'Delicious Handrawn', cursive;
+    text-align: center;
+}
+
+.firstly-header>div:last-child:hover {
+    background-color: #fc8d07;
+    box-shadow: 0 0 7px 2px lightgrey;
+}
+
+.wrapper-nav {
+    border-top: 1px solid lightgrey;
+    border-bottom: 3px solid rgb(224, 222, 222);
+    margin-bottom: 10px;
+}
+
+ul,
+li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+}
+
+li {
+    padding: 15px;
+    font-weight: bold;
+}
+
+.menu>li:hover {
+    color: rgb(0, 0, 255);
+}
+
 .container {
     max-width: 1024px;
     margin: auto;
-    border: 1px solid rgb(131, 130, 130);   
+    border: 1px solid rgb(131, 130, 130);
     padding: 20px;
-    box-shadow: 0 0 10px 5px lightgray;   
+    box-shadow: 0 0 10px 5px lightgray;
 }
 
 .container-width {
@@ -53,4 +127,48 @@
 .btn-control img:hover {
     opacity: 1;
     scale: 1.1;
+}
+
+.container-list-videos {
+    border: 1px solid rgb(201, 109, 109);
+    margin: 50px 0px 0px 0px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    /* font-family: 'Caveat', cursive; */
+    /* font-family: 'Delicious Handrawn', cursive; */
+    /* font-family: 'Roboto', sans-serif; */
+    /* font-family: 'Shantell Sans', cursive; */
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.card-video {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    margin: 15px 0px 25px 0px;
+    max-width: 300px;
+}
+
+.wrap-video>img {
+    width: 100%;
+    border-radius: 10px;
+    transition: 0.5s;
+}
+
+.wrap-video>img:hover {
+    box-shadow: 0 0 5px 5px lightgray;
+}
+
+.card-video>.title-video {
+    max-width: 300px;
+    margin: 5px 0px 5px 0px;
+}
+
+.card-video>.subtitle-video {
+    max-width: 300px;
+    margin: 2px 0px 2px 0px;
+    font-size: 14px;
+    font-weight: 500;
 }

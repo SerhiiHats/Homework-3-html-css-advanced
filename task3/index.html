@@ -6,6 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>task3</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Delicious+Handrawn&family=Roboto:ital,wght@0,500;0,700;0,900;1,500;1,700;1,900&family=Shantell+Sans:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Source+Sans+Pro:wght@400;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <style>
         .container {
@@ -30,11 +35,36 @@
     Після перезавантаження сторінки, відео має завантажитись, і користувач може продовжити перегляд (який був до
     перезавантаження).
     Використовуйте збереження інформації у сховищі. -->
+    <header>
+        <div class="a-contaiher firstly-header">
+
+            <h1 class="logo" href="#"><i class="fa-solid fa-film"></i>
+                StreamCinema
+                <span class="sub-logo"> .UA</span>
+            </h1>
+            <i class=""></i>
+            <div>
+                Заказать звонок
+            </div>
+        </div>
+        <div class="a-contaiher wrapper-nav">
+            <nav>
+                <ul class="menu">
+                    <li>ТЕМЫ</li>
+                    <li>МАГАЗИН</li>
+                    <li>УСЛУГИ</li>
+                    <li>ПОДДЕРЖАТЬ</li>
+                    <li>ФИЛЬМ</li>
+                    <li>НОВИНКИ</li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
     <div class="container">
         <div class="container-width container-video">
-            <video id="video" controls>
-                <source src="video/nature2.mp4">
+            <video id="video"
+                src="https://storage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4" controls>
             </video>
         </div>
 
@@ -57,7 +87,20 @@
                 <div id="volume-high" class="btn-control"><img src="icon/volume-high-solid.svg" alt="volume-high"></div>
             </div>
         </div>
+
     </div>
+    <div id="list-videos" class="container-list-videos">
+        <!--   <div class="card-video">
+            <div class="wrap-video">
+                <img class="thumb-video" src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg"
+                    alt="Big Buck Bunny">
+            </div>
+            <h2 class="title-video">Big Buck Bunny</h2>
+            <h3 class="subtitle-video">By Blender Foundation</h3>
+        </div> -->
+
+    </div>
+    <script src="https://kit.fontawesome.com/36415ef25f.js" crossorigin="anonymous"></script>
     <script src="js/player.js"></script>
 </body>
 
